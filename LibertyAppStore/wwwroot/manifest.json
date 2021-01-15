@@ -1,6 +1,6 @@
 {
   "name": "LibertyAppStore",
-  "short_name": "LibertyAppStore",
+  "short_name": "Liberty AppStore",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",

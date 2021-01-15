@@ -26,6 +26,21 @@ a, .btn-link {
     outline: 1px solid red;
 }
 
+.centered {
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.appItem {
+    
+}
+
+
+.appItem h6 {
+    text-align: center;       
+}    
+
 .validation-message {
     color: red;
 }

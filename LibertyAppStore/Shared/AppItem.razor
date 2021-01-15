@@ -1,0 +1,22 @@
+﻿<div class="col-sm alert alert-secondary centered appItem" style="margin: 5px;">
+    <img src="@icon" width="96" height="96"/>
+    <h6>@name</h6>
+    <div>
+        <button class="btn btn-primary" @onclick="InstallApp">Install</button>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string name { get; set; }
+    [Parameter]
+    public string icon { get; set; }
+    [Parameter]
+    public string source { get; set; }
+
+    private void InstallApp()
+    {
+
+    }
+}

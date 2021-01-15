@@ -1,7 +1,49 @@
 ﻿@page "/"
+@inject HttpClient Http
 
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
+@if (apps == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container">
+        <div class="row">
+            @for (int index = 0; index < apps.Length; index++)
+            {
+                <AppItem name="@apps[index].name" icon="@apps[index].icon" source="@apps[index].url" />
+                if (index % 4 == 0)
+                {
+                @:</div><div class="row">
+                }
+            }
+        </div>
+    </div>
+}
+    <SurveyPrompt Title="How is Blazor working for you?" />
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+@code {
+    private AppItemObject[] apps;
+    private int row = 0;
+    private int itemIndex = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        apps = await Http.GetFromJsonAsync<AppItemObject[]>("common/apps.json");
+    }
+
+    public class AppItemObject
+    {
+        public string name { get; set; }
+
+        public string icon { get; set; }
+
+        public string category { get; set; }
+
+        public string url { get; set; }
+    }
+    }
